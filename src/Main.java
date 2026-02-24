@@ -19,7 +19,6 @@ public class Main {
         System.out.println("Welcome to the Palindrome Checker Application!");
         System.out.println("This application will validate whether a given string is a palindrome.");
         System.out.println("--------------------------------------------------");
-        System.out.println("System is ready to proceed to the next use case...");
 
         // =========================
         // UC2 - Hardcoded Palindrome Check
@@ -27,21 +26,40 @@ public class Main {
         System.out.println("\nExecuting UC2: Hardcoded Palindrome Check");
         System.out.println("--------------------------------------------------");
 
-        // Hardcoded String Literal
         String word = "bob";
-
-        // Reverse the string
         String reversed = "";
 
         for (int i = word.length() - 1; i >= 0; i--) {
             reversed += word.charAt(i);
         }
 
-        // Palindrome validation using if-else
         if (word.equals(reversed)) {
             System.out.println("Result: \"" + word + "\" is a Palindrome.");
         } else {
             System.out.println("Result: \"" + word + "\" is NOT a Palindrome.");
+        }
+
+        // =========================
+        // UC3 - Palindrome Check Using String Reverse
+        // =========================
+        System.out.println("\nExecuting UC3: Palindrome Check Using String Reverse");
+        System.out.println("--------------------------------------------------");
+
+        // String Data Structure
+        String input = "racecar";
+        String reversedString = "";
+
+        // Reverse string using for loop
+        for (int i = input.length() - 1; i >= 0; i--) {
+            // String concatenation (creates new object each time due to immutability)
+            reversedString = reversedString + input.charAt(i);
+        }
+
+        // Compare original and reversed using equals()
+        if (input.equals(reversedString)) {
+            System.out.println("Result: \"" + input + "\" is a Palindrome.");
+        } else {
+            System.out.println("Result: \"" + input + "\" is NOT a Palindrome.");
         }
 
         System.out.println("--------------------------------------------------");

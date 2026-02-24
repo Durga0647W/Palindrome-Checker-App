@@ -24,9 +24,7 @@ public class Main {
         // UC2 - Hardcoded Palindrome Check
         // =========================
         System.out.println("\nExecuting UC2: Hardcoded Palindrome Check");
-        System.out.println("--------------------------------------------------");
-
-        String word = "bob";
+        String word = "madam";
         String reversed = "";
 
         for (int i = word.length() - 1; i >= 0; i--) {
@@ -40,26 +38,54 @@ public class Main {
         }
 
         // =========================
-        // UC3 - Palindrome Check Using String Reverse
+        // UC3 - Using String Reverse (Concatenation)
         // =========================
         System.out.println("\nExecuting UC3: Palindrome Check Using String Reverse");
-        System.out.println("--------------------------------------------------");
-
-        // String Data Structure
         String input = "racecar";
         String reversedString = "";
 
-        // Reverse string using for loop
         for (int i = input.length() - 1; i >= 0; i--) {
-            // String concatenation (creates new object each time due to immutability)
             reversedString = reversedString + input.charAt(i);
         }
 
-        // Compare original and reversed using equals()
         if (input.equals(reversedString)) {
             System.out.println("Result: \"" + input + "\" is a Palindrome.");
         } else {
             System.out.println("Result: \"" + input + "\" is NOT a Palindrome.");
+        }
+
+        // =========================
+        // UC4 - Using Character Array (Two-Pointer Technique)
+        // =========================
+        System.out.println("\nExecuting UC4: Palindrome Check Using Character Array");
+
+        String text = "level";
+
+        // Convert String to char[]
+        char[] characters = text.toCharArray();
+
+        // Two-pointer approach
+        int start = 0;
+        int end = characters.length - 1;
+
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            // Compare characters using array indexing
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break; // stop early if mismatch found
+            }
+
+            start++;
+            end--;
+        }
+
+        if (isPalindrome) {
+            System.out.println("Result: \"" + text + "\" is a Palindrome.");
+        } else {
+            System.out.println("Result: \"" + text + "\" is NOT a Palindrome.");
         }
 
         System.out.println("--------------------------------------------------");

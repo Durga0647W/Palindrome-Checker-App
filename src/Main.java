@@ -1,4 +1,7 @@
 import java.util.Stack;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class Main {
 
@@ -116,5 +119,43 @@ public class Main {
 
         System.out.println("--------------------------------------------------");
         System.out.println("Program execution completed.");
+        // =========================
+        // UC6 - FIFO vs LIFO Demonstration (Queue vs Stack)
+        // =========================
+        System.out.println("\nExecuting UC6: FIFO vs LIFO (Queue vs Stack)");
+
+        String data = "bob";
+
+        // Create Queue (FIFO)
+        Queue<Character> queue = new LinkedList<>();
+
+        // Create Stack (LIFO)
+        Stack<Character> stackDS = new Stack<>();
+
+        // Enqueue and Push characters
+        for (int i = 0; i < data.length(); i++) {
+            queue.add(data.charAt(i));   // Enqueue
+            stackDS.push(data.charAt(i)); // Push
+        }
+
+        boolean isPalindromeDS = true;
+
+        // Compare Dequeue (FIFO) with Pop (LIFO)
+        for (int i = 0; i < data.length(); i++) {
+
+            char fromQueue = queue.remove();   // Dequeue (FIFO)
+            char fromStack = stackDS.pop();    // Pop (LIFO)
+
+            if (fromQueue != fromStack) {
+                isPalindromeDS = false;
+                break;
+            }
+        }
+
+        if (isPalindromeDS) {
+            System.out.println("Result: \"" + data + "\" is a Palindrome.");
+        } else {
+            System.out.println("Result: \"" + data + "\" is NOT a Palindrome.");
+        }
     }
 }

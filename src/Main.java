@@ -8,7 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Welcome Section
+        // =========================
+        // UC1 - Welcome Section
+        // =========================
         System.out.println("======================================");
         System.out.println("        " + APP_NAME);
         System.out.println("        " + VERSION);
@@ -18,5 +20,31 @@ public class Main {
         System.out.println("This application will validate whether a given string is a palindrome.");
         System.out.println("--------------------------------------------------");
         System.out.println("System is ready to proceed to the next use case...");
+
+        // =========================
+        // UC2 - Hardcoded Palindrome Check
+        // =========================
+        System.out.println("\nExecuting UC2: Hardcoded Palindrome Check");
+        System.out.println("--------------------------------------------------");
+
+        // Hardcoded String Literal
+        String word = "bob";
+
+        // Reverse the string
+        String reversed = "";
+
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed += word.charAt(i);
+        }
+
+        // Palindrome validation using if-else
+        if (word.equals(reversed)) {
+            System.out.println("Result: \"" + word + "\" is a Palindrome.");
+        } else {
+            System.out.println("Result: \"" + word + "\" is NOT a Palindrome.");
+        }
+
+        System.out.println("--------------------------------------------------");
+        System.out.println("Program execution completed.");
     }
 }

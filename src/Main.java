@@ -1,7 +1,8 @@
 import java.util.Stack;
-import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class Main {
 
@@ -157,5 +158,41 @@ public class Main {
         } else {
             System.out.println("Result: \"" + data + "\" is NOT a Palindrome.");
         }
+        // =========================
+        // UC7 - Deque-Based Optimized Palindrome Checker
+        // =========================
+        System.out.println("\nExecuting UC7: Deque-Based Optimized Palindrome Checker");
+
+        String dequeInput = "madam";
+
+        // Create Deque
+        Deque<Character> deque = new ArrayDeque<>();
+
+        // Insert characters into deque
+        for (int i = 0; i < dequeInput.length(); i++) {
+            deque.addLast(dequeInput.charAt(i));
+        }
+
+        boolean dequePalindrome = true;
+
+        // Remove first and last and compare
+        while (deque.size() > 1) {
+
+            char first = deque.removeFirst();  // Front removal
+            char last = deque.removeLast();    // Rear removal
+
+            if (first != last) {
+                dequePalindrome = false;
+                break;
+            }
+        }
+
+        if (dequePalindrome) {
+            System.out.println("Result: \"" + dequeInput + "\" is a Palindrome.");
+        } else {
+            System.out.println("Result: \"" + dequeInput + "\" is NOT a Palindrome.");
+        }
+
+        System.out.println("--------------------------------------------------");
     }
 }

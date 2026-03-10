@@ -1,5 +1,4 @@
 import java.util.Stack;
-import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
 
@@ -10,7 +9,24 @@ public class Main {
 
     // Application Version Constant
     static final String VERSION = "Version 1.0";
+    // =========================
+// UC9 - Recursive Palindrome Method
+// =========================
+    public static boolean isPalindromeRecursive(String str, int start, int end) {
 
+        // Base condition
+        if (start >= end) {
+            return true;
+        }
+
+        // If characters don't match
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        // Recursive call
+        return isPalindromeRecursive(str, start + 1, end - 1);
+    }
     public static void main(String[] args) {
 
         // =========================
@@ -157,5 +173,20 @@ public class Main {
         } else {
             System.out.println("Result: \"" + data + "\" is NOT a Palindrome.");
         }
+        // =========================
+        // UC9 - Recursive Palindrome Checker
+        // =========================
+        System.out.println("\nExecuting UC9: Recursive Palindrome Checker");
+
+        String recursiveInput = "refer";
+
+        boolean recursiveResult = isPalindromeRecursive(recursiveInput, 0, recursiveInput.length() - 1);
+
+        if (recursiveResult) {
+            System.out.println("Result: \"" + recursiveInput + "\" is a Palindrome.");
+        } else {
+            System.out.println("Result: \"" + recursiveInput + "\" is NOT a Palindrome.");
+        }
+        System.out.println("--------------------------------------------------");
     }
 }

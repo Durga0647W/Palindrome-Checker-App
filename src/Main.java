@@ -188,5 +188,36 @@ public class Main {
             System.out.println("Result: \"" + recursiveInput + "\" is NOT a Palindrome.");
         }
         System.out.println("--------------------------------------------------");
+        // =========================
+        // UC10 - Case-Insensitive & Space-Ignored Palindrome
+        // =========================
+        System.out.println("\nExecuting UC10: Case-Insensitive & Space-Ignored Palindrome");
+
+        String rawInput = "Never Odd Or Even";
+
+        // Step 1: Normalize the string
+        String normalized = rawInput.replaceAll("\\s+", "").toLowerCase();
+
+        // Step 2: Check palindrome using two-pointer logic
+        int left = 0;
+        int right = normalized.length() - 1;
+        boolean isNormalizedPalindrome = true;
+
+        while (left < right) {
+            if (normalized.charAt(left) != normalized.charAt(right)) {
+                isNormalizedPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+
+        if (isNormalizedPalindrome) {
+            System.out.println("Result: \"" + rawInput + "\" is a Palindrome (ignoring spaces and case).");
+        } else {
+            System.out.println("Result: \"" + rawInput + "\" is NOT a Palindrome.");
+        }
+
+        System.out.println("--------------------------------------------------");
     }
 }

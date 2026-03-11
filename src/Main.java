@@ -5,13 +5,13 @@ import java.util.LinkedList;
 public class Main {
 
     // Application Name Constant
-    static final String APP_NAME = "Palindrome Checker App";
+        static final String APP_NAME = "Palindrome Checker App";
          // Application Version Constant
         static final String VERSION = "Version 1.0";
          // =========================
         // UC9 - Recursive Palindrome Method
-    // =========================
-    public static boolean isPalindromeRecursive(String str, int start, int end) {
+        // =========================
+        public static boolean isPalindromeRecursive(String str, int start, int end) {
         // Base condition
         if (start >= end) {
             return true;
@@ -23,10 +23,10 @@ public class Main {
         // Recursive call
         return isPalindromeRecursive(str, start + 1, end - 1);
     }
-    // =========================
+        // =========================
         // UC11 - PalindromeChecker Service Class
         // =========================
-    static class PalindromeChecker {
+         static class PalindromeChecker {
         // Method to check palindrome
         public boolean checkPalindrome(String input) {
             int left = 0;
@@ -234,16 +234,41 @@ public class Main {
 
         // Change this line to test different strategies
         strategy = new StackStrategy();
-// strategy = new DequeStrategy();
+        // strategy = new DequeStrategy();
 
-        boolean result = strategy.checkPalindrome(strategyInput);
+        boolean strategyResult = strategy.checkPalindrome(strategyInput);
 
-        if(result){
+        if(strategyResult){
             System.out.println("Result: \"" + strategyInput + "\" is a Palindrome.");
         }else{
             System.out.println("Result: \"" + strategyInput + "\" is NOT a Palindrome.");
         }
 
+        System.out.println("--------------------------------------------------");
+        // =========================
+        // UC13 - Performance Comparison
+        // =========================
+        System.out.println("\nExecuting UC13: Performance Comparison of Algorithms");
+        String testInput = "racecar";
+
+        // ----- Stack Strategy -----
+        PalindromeStrategy stackStrategy = new StackStrategy();
+        long startStack = System.nanoTime();
+        boolean stackResult = stackStrategy.checkPalindrome(testInput);
+        long endStack = System.nanoTime();
+        long stackTime = endStack - startStack;
+
+        // ----- Deque Strategy -----
+        PalindromeStrategy dequeStrategy = new DequeStrategy();
+        long startDeque = System.nanoTime();
+        boolean dequeResult = dequeStrategy.checkPalindrome(testInput);
+        long endDeque = System.nanoTime();
+        long dequeTime = endDeque - startDeque;
+        // Display results
+        System.out.println("Stack Strategy Result: " + stackResult);
+        System.out.println("Stack Execution Time: " + stackTime + " ns");
+        System.out.println("Deque Strategy Result: " + dequeResult);
+        System.out.println("Deque Execution Time: " + dequeTime + " ns");
         System.out.println("--------------------------------------------------");
     }
 }

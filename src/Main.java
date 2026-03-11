@@ -222,5 +222,28 @@ public class Main {
         }
 
         System.out.println("--------------------------------------------------");
+        // =========================
+        // UC12 - Strategy Pattern
+        // =========================
+        System.out.println("\nExecuting UC12: Strategy Pattern Palindrome Checker");
+
+        String strategyInput = "madam";
+
+        // Choose strategy dynamically
+        PalindromeStrategy strategy;
+
+        // Change this line to test different strategies
+        strategy = new StackStrategy();
+// strategy = new DequeStrategy();
+
+        boolean result = strategy.checkPalindrome(strategyInput);
+
+        if(result){
+            System.out.println("Result: \"" + strategyInput + "\" is a Palindrome.");
+        }else{
+            System.out.println("Result: \"" + strategyInput + "\" is NOT a Palindrome.");
+        }
+
+        System.out.println("--------------------------------------------------");
     }
 }
